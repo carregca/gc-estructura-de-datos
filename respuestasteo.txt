@@ -1,0 +1,39 @@
+Serie de operaciones sobre el stack
+
+push(5) → [5]
+push(3) → [5, 3]
+pop() → devuelve 3 → [5]
+push(2) → [5, 2]
+push(8) → [5, 2, 8]
+pop() → devuelve 8 → [5, 2]
+pop() → devuelve 2 → [5]
+push(9) → [5, 9]
+push(1) → [5, 9, 1]
+pop() → devuelve 1 → [5, 9]
+push(7) → [5, 9, 7]
+push(6) → [5, 9, 7, 6]
+pop() → devuelve 6 → [5, 9, 7]
+pop() → devuelve 7 → [5, 9]
+push(4) → [5, 9, 4]
+pop() → devuelve 4 → [5, 9]
+pop() → devuelve 9 → [5]
+
+Valores devueltos por los pop():
+3, 8, 2, 1, 6, 7, 4, 9
+
+
+Tamaño actual de la Queue
+
+Datos:
+32 enqueue
+15 dequeue
+5 dequeue dieron Empty
+
+Entonces:
+15 - 5 = 10 dequeue válidos
+
+Tamaño actual:
+32 - 10 = 22
+
+Resultado final:
+22
