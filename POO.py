@@ -1,84 +1,214 @@
-# Clase Pila
-class Pila:
+import random
+import os
+from time import sleep
 
-    # Constructor
+
+class Queue:
+
     def __init__(self):
-        self.elementos = []
+        self.cola = ["A", "B", "C", "A", "A", "C"]
 
-    # Agrega elementos a la pila
-    def apilar(self, elemento):
-        self.elementos.append(elemento)
+    def enqueue(self):
 
-    # Elimina el último elemento
-    def desapilar(self):
+        letra = random.randint(1,3)
 
-        if len(self.elementos) == 0:
-            return "Pila vacía"
+        if letra == 1:
+            self.cola.append("A")
+        elif letra == 2:
+            self.cola.append("B")
+        else:
+            self.cola.append("C")
 
-        return self.elementos.pop()
+        print("Queue:", self.cola)
 
-    # Muestra el elemento del tope
-    def cima(self):
+    def dequeue(self):
 
-        if len(self.elementos) == 0:
-            return "Pila vacía"
+        if len(self.cola) > 0:
 
-        return self.elementos[-1]
+            elemento = self.cola.pop(0)
 
-    # Verifica si está vacía
-    def vacía(self):
-        return len(self.elementos) == 0
+            print("Ele.eli:", elemento)
+            print("Queue:", self.cola)
+
+        else:
+            print("La queue esta vacia")
+
+    def peek(self):
+
+        if len(self.cola) > 0:
+            print(self.cola[0])
+        else:
+            print("La queue esta vacia")
+
+    def isempty(self):
+
+        if len(self.cola) == 0:
+            print("True")
+        else:
+            print("False")
+
+    def size(self):
+
+        print(len(self.cola))
 
 
-# Clase Cola
-class Cola:
+class Stack:
 
-    # Constructor
     def __init__(self):
-        self.elementos = []
+        self.pila = ["A", "B", "C", "A", "A", "C"]
 
-    # Agrega elementos a la cola
-    def encolar(self, elemento):
-        self.elementos.append(elemento)
+    def push(self):
 
-    # Elimina el primer elemento
-    def desencolar(self):
+        letra = random.randint(1,3)
 
-        if len(self.elementos) == 0:
-            return "Cola vacía"
+        if letra == 1:
+            self.pila.append("A")
+        elif letra == 2:
+            self.pila.append("B")
+        else:
+            self.pila.append("C")
 
-        return self.elementos.pop(0)
+        print("Stack:", self.pila)
 
-    # Muestra el primer elemento
-    def frente(self):
+    def pop(self):
 
-        if len(self.elementos) == 0:
-            return "Cola vacía"
+        if len(self.pila) > 0:
 
-        return self.elementos[0]
+            elemento = self.pila.pop()
 
-    # Verifica si está vacía
-    def vacía(self):
-        return len(self.elementos) == 0
+            print("Ele.eli:", elemento)
+            print("Stack:", self.pila)
+
+        else:
+            print("La stack esta vacia")
+
+    def peek(self):
+
+        if len(self.pila) > 0:
+            print(self.pila[-1])
+        else:
+            print("La stack esta vacia")
+
+    def isempty(self):
+
+        if len(self.pila) == 0:
+            print("True")
+        else:
+            print("False")
+
+    def size(self):
+
+        print(len(self.pila))
 
 
-# Uso de Pila
-pila = Pila()
+def borrador():
 
-pila.apilar(5)
-pila.apilar(3)
-
-print(pila.desapilar())
-print(pila.cima())
-print(pila.vacía())
+    sleep(1)
+    os.system("cls" if os.name == 'nt' else "clear")
 
 
-# Uso de Cola
-cola = Cola()
+qeue = Queue()
+stack = Stack()
 
-cola.encolar(5)
-cola.encolar(3)
+menu = True
 
-print(cola.desencolar())
-print(cola.frente())
-print(cola.vacía())
+while menu:
+
+    sq = input("que queres usar qeue o stack(q/s/x): ").lower()
+
+    if sq == "q":
+
+        subsubmenu = True
+
+        while subsubmenu:
+
+            borrador()
+
+            hacer = input("que queres hacerle a la fila(e/d/p/v/t/s): ").lower()
+
+            if hacer == "e":
+
+                borrador()
+                qeue.enqueue()
+
+            elif hacer == "d":
+
+                borrador()
+                qeue.dequeue()
+
+            elif hacer == "p":
+
+                borrador()
+                qeue.peek()
+
+            elif hacer == "v":
+
+                borrador()
+                qeue.isempty()
+
+            elif hacer == "t":
+
+                borrador()
+                qeue.size()
+
+            elif hacer == "s":
+
+                borrador()
+                subsubmenu = False
+
+            else:
+
+                borrador()
+                print("no esta dentro de las opciones")
+
+    elif sq == "s":
+
+        submenu = True
+
+        while submenu:
+
+            accion = input("que queres hacerle al stack(m/s/p/v/t/x): ").lower()
+
+            if accion == "m":
+
+                borrador()
+                stack.push()
+
+            elif accion == "s":
+
+                borrador()
+                stack.pop()
+
+            elif accion == "p":
+
+                borrador()
+                stack.peek()
+
+            elif accion == "v":
+
+                borrador()
+                stack.isempty()
+
+            elif accion == "t":
+
+                borrador()
+                stack.size()
+
+            elif accion == "x":
+
+                borrador()
+                submenu = False
+
+            else:
+
+                borrador()
+                print("no esta dentro de las opciones")
+
+    elif sq == "x":
+
+        menu = False
+
+    else:
+
+        borrador()
+        print("elegi q o s")

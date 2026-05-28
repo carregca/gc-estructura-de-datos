@@ -28,6 +28,7 @@ import random, os
 from time import sleep
 
 qeue= ["A", "B","C","A", "A", "C"]
+stack= ["A", "B","C","A", "A", "C"]
 
 menu= True
 def borrador():
@@ -35,49 +36,106 @@ def borrador():
     os.system("cls" if os.name == 'nt' else "clear")
 
 while menu:
-    borrador()
-    hacer=input("que queres hacarle a la fila(e/d/p/v/t/s): ")
+    sq= input("que queres usar qeue o stack(q/s/x): ").lower()
+    if sq== "q":
+        subsubmenu= True
+        while subsubmenu == True:
 
-    if hacer == "e":
-        borrador()
-        #enqeue
-        letra= random.randint(1,3)
-        if letra== 1:
-            qeue.append("A")
-        elif letra == 2:
-            qeue.append("B")
-        else:
-            qeue.append("C")
-        print("Qeue: ", qeue)
-    elif hacer == "d":
-        borrador()
-        #deqeue
-        element= qeue.pop(0)
-        print("Ele.eli: ", element)
-        print("Qeue: ", qeue)
-    elif hacer == "p":
-        borrador()
-        #peek
-        elemento= qeue[0]
-        print(elemento)
-    elif hacer == "v":
-        borrador()
-        #isempty
-        if len(qeue) == 0:
-            print("true")
-        else:
-            print("Falso")
-    elif hacer == "t":
-        borrador()
-        #size
-        print(len(qeue))
-    elif hacer == "s":
-        borrador()
+            borrador()
+            hacer=input("que queres hacarle a la fila(e/d/p/v/t/s): ")
+
+            if hacer == "e":
+                borrador()
+                #enqeue
+                letra= random.randint(1,3)
+                if letra== 1:
+                    qeue.append("A")
+                elif letra == 2:
+                    qeue.append("B")
+                else:
+                    qeue.append("C")
+                print("Qeue: ", qeue)
+            elif hacer == "d":
+                borrador()
+                #deqeue
+                element= qeue.pop(0)
+                print("Ele.eli: ", element)
+                print("Qeue: ", qeue)
+            elif hacer == "p":
+                borrador()
+                #peek
+                elemento= qeue[0]
+                print(elemento)
+            elif hacer == "v":
+                borrador()
+                #isempty
+                if len(qeue) == 0:
+                    print("true")
+                else:
+                    print("Falso")
+            elif hacer == "t":
+                borrador()
+                #size
+                print(len(qeue))
+            elif hacer == "s":
+                borrador()
+                subsubmenu= False
+            else:
+                borrador()
+                print("no esta dentro de las opciones")
+
+    elif sq == "s":
+            
+            submenu = True
+
+            while submenu:
+                accion = input("que queres hacerle al stack(m/s/p/v/t/x): ").lower()
+
+                if accion == "m":
+                    borrador()
+                    #push
+                    letra = random.randint(1,3)
+                    if letra == 1:
+                        stack.append("A")
+                    elif letra == 2:
+                        stack.append("B")
+                    else:
+                        stack.append("C")
+                    print("Stack: ", stack)
+                elif accion == "s":
+                    borrador()
+                    #pop
+                    elemento = stack.pop()
+                    print("Ele.eli: ", elemento)
+                    print("Stack: ", stack)
+                elif accion == "p":
+                    borrador()
+                    #peek
+                    elemento = stack[-1]
+                    print(elemento)
+                elif accion == "v":
+                    borrador()
+                    #isempty
+                    if len(stack) == 0:
+                        print("True")
+                    else:
+                        print("False")
+                elif accion == "t":
+                    borrador()
+                    #size
+                    print(len(stack))
+                elif accion == "x":
+                    borrador()
+                    submenu = False
+                else:
+                    borrador()
+                    print("no esta dentro de las opciones")
+    elif sq == "x":
         menu= False
+
     else:
         borrador()
-        print("no esta dentro de las opciones")
-
+        print("elegi q o s")
 
 
 
